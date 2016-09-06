@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/moose_image_item_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/moose_image_item_card"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTransparent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/moose_rl_image_bar"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@color/colorTransparent">
+
+                <ImageView
+                    android:id="@+id/moose_user_icon"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@mipmap/tx_moose" />
+
+                <TextView
+                    android:id="@+id/moose_tv_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/moose_user_icon"
+                    android:gravity="center_vertical"
+                    android:text="共享"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/moose_tv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_below="@id/moose_tv_username"
+                    android:layout_toRightOf="@id/moose_user_icon"
+                    android:gravity="bottom|left"
+                    android:text="@string/moose_hint_time"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/moose_iv"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tx_moose" />
+
+            <LinearLayout
+                android:id="@+id/moose_comment_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|left"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="我是评论哈哈哈哈" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

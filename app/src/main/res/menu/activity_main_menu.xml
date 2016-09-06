@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:moose="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_home"
+        android:icon="@mipmap/tx_moose"
+        android:title="@string/moose_home" />
+    <item
+        android:id="@+id/item_my_photos"
+        android:icon="@mipmap/tx_moose"
+        android:title="@string/moose_about_us" />
+    <item
+        android:id="@+id/item_settings"
+        android:title="@string/moose_other" />
+    <item
+        android:id="@+id/item_support_us"
+        android:icon="@mipmap/tx_moose"
+        android:title="@string/moose_support_us" />
+<!--    <item
+        android:id="@+id/item_about_me"
+        android:icon="@mipmap/tx_moose"
+        android:title="@string/moose_about_me" />-->
+    <item
+        android:id="@+id/item_toggle"
+        android:orderInCategory="100"
+        android:title="@string/moose_sign_out_in" />
+</menu>

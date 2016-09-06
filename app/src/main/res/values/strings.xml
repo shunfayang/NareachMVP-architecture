@@ -1,0 +1,26 @@
+<resources>
+    <!-- 侧滑的按钮 start -->
+    <string name="moose_home">首页</string>
+    <string name="moose_about_us">我的</string>
+    <string name="moose_sign_out_in">登录/注册</string>
+    <string name="moose_support_us">关于应用</string>
+    <string name="moose_about_me">关于本应用与发哥</string>
+    <!-- 侧滑的按钮 end -->
+
+    <string name="app_name">NAREACH_MVP</string>
+    <string name="moose_sign_state">MOOSE</string>
+
+    <string name="moose_upload">upload</string>
+    <string name="moose_subtitle">THIS IS MINE WAY!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_upload">UPLOAD</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="moose_unsign">没登陆，不开森</string>
+    <string name="moose_sign_out">退出</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="moose_other">设置</string>
+    <string name="title_activity_my_photo">我的作品</string>
+    <string name="moose_hint_time">2016-01-01 22:25</string>
+</resources>
