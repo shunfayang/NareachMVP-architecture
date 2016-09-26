@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
@@ -152,7 +153,7 @@ public class AllFragment
         }
 
         @Override
-        public void onBindViewHolder(ImageHolder holder, int position) {
+        public void onBindViewHolder(ImageHolder holder, final int position) {
             // 设置值的一些操作放在这儿
             ImageListBean imageListBean = mImageList.get(position);
 
@@ -173,6 +174,12 @@ public class AllFragment
             // 设置日期时间
             holder.ivDate.setText(imageListBean.date);
             holder.userName.setText(imageListBean.username);
+            holder.mImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(AllFragment.this.getContext(),"点击" + position, Toast.LENGTH_LONG).show();
+                }
+            });
 
             // 设置用户名和用户头像
 
