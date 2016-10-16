@@ -1,23 +1,24 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'android-apt'
+
+def appVersionCode = 100
+def appVersionName = "1.0.0"
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
         applicationId "com.moose.nareachmvp"
-        minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug{
-
         }
     }
     android {
@@ -37,26 +38,41 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    //    compile 'com.squareup.okhttp:okhttp:2.6.0'
-    //    compile 'org.apache.httpcomponents:httpmime:4.5.1'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.android.support:recyclerview-v7:23.1.1'
-    compile 'com.google.code.gson:gson:2.2.4'
-    //    compile 'com.google.code.gson:gson:2.6.2'
-    //    compile 'com.alibaba:fastjson:1.2.7'
-    compile 'com.github.bumptech.glide:glide:3.6.1'
-    //    compile 'com.facebook.fresco:fresco:0.8.1'
-    //    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.jakewharton.scalpel:scalpel:1.1.2'
-    compile 'in.srain.cube:ultra-ptr:1.0.11'
-    compile 'com.zhy:autolayout:1.3.4'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.2.1'
+//    compile 'com.squareup.okhttp:okhttp:2.6.0'
+//    compile 'org.apache.httpcomponents:httpmime:4.5.1'
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["design-v7"]
+    compile rootProject.ext.dependencies["support-v4"]
+    compile rootProject.ext.dependencies["cardview-v7"]
+    compile rootProject.ext.dependencies["recyclerview-v7"]
+
+    compile rootProject.ext.dependencies["gson"]
+//    compile rootProject.ext.dependencies["fastjson"]
+
+    compile rootProject.ext.dependencies["glide"]
+//    compile rootProject.ext.dependencies["fresco"]
+//    compile rootProject.ext.dependencies["picasso"]
+
+    compile rootProject.ext.dependencies["jakewharton-scalpel"]
+    compile rootProject.ext.dependencies["ultra-ptr"]
+    compile rootProject.ext.dependencies["zhy-autolayout"]
+
+    compile rootProject.ext.dependencies["rxandroid"]
+    compile rootProject.ext.dependencies["rxjava"]
+
     // Prism 棱镜
-    compile 'com.stylingandroid.prism:prism:1.0.1'
-    compile 'com.stylingandroid.prism:prism-viewpager:1.0.1'
+    compile rootProject.ext.dependencies["stylingandroid_prism"]
+    compile rootProject.ext.dependencies["stylingandroid_prism-viewpager"]
+
+    compile rootProject.ext.dependencies["butterknife"]
+    apt rootProject.ext.dependencies["butterknife-compiler"]
+
+    compile rootProject.ext.dependencies["orhanobut-logger"]
+
+
+    debugCompile rootProject.ext.dependencies["debugCompile_leakcanary"]
+    releaseCompile rootProject.ext.dependencies["releaseCompile_leakcanary"]
+    testCompile rootProject.ext.dependencies["testCompile_leakcanary"]
+
 }
 
