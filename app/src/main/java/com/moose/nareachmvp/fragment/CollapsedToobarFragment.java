@@ -11,13 +11,14 @@ import android.view.View;
 import com.moose.nareachmvp.R;
 import com.moose.nareachmvp.base.BaseFragmentAppCompat;
 import com.moose.nareachmvp.base.BasePresenter;
+import com.moose.nareachmvp.base.BaseView;
 
 /**
  * Created by Moose Yang on 2016/1/26.
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public abstract class CollapsedToobarFragment<V, P extends BasePresenter<V>> extends BaseFragmentAppCompat {
+public abstract class CollapsedToobarFragment<V extends BaseView, P extends BasePresenter<V>> extends BaseFragmentAppCompat {
 
 
     private View view;

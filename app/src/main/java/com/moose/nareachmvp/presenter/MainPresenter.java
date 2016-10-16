@@ -4,20 +4,17 @@ import android.content.Intent;
 
 import com.moose.nareachmvp.NareachApp;
 import com.moose.nareachmvp.R;
-import com.moose.nareachmvp.activities.Main4ReplaceFragmentActivity;
-import com.moose.nareachmvp.activities.MainActivity;
 import com.moose.nareachmvp.activities.RegisterActivity;
-import com.moose.nareachmvp.base.BaseAppCompatActivity;
 import com.moose.nareachmvp.base.BasePresenter;
 import com.moose.nareachmvp.bean.UserBean;
+import com.moose.nareachmvp.contract.MainContract;
 import com.moose.nareachmvp.imodule.impl.MainModule;
-import com.moose.nareachmvp.iview.interfaces.IActivityView;
 
 /**
  * Created by yang2 on 2016/1/7.
  */
-public class MainPresenter extends BasePresenter<MainPresenter.IMainView> {
-    private IMainModule mMainModule;
+public class MainPresenter extends BasePresenter<MainContract.View> {
+    private MainContract.Model mMainModule;
 
     public MainPresenter() {
         this.mMainModule = new MainModule();
@@ -81,68 +78,4 @@ public class MainPresenter extends BasePresenter<MainPresenter.IMainView> {
         void success();
     }
 
-    // =================================================================
-    // 以下是Module和View接口
-    // =================================================================
-
-
-    /**
-     * Module
-     */
-    public interface IMainModule {
-        /**
-         * 上传图片
-         */
-        boolean uploadImg(String path);
-
-        /**
-         * 检查登录状态
-         */
-        boolean checkSign();
-
-        /**
-         * 更新用户相关的数据
-         */
-        UserBean updateUserState();
-
-        /**
-         * 登录登出
-         *
-         * @param activity
-         */
-        void signOutIn(SignCallBack activity);
-
-        /**
-         * 处理onActivityResult结果
-         */
-        boolean onActivityResult(int requestCode, int resultCode, Intent data);
-
-        /**
-         * 打开图库
-         */
-        void requestOpenGalleryPermission(BaseAppCompatActivity activity, OpenGalleryCallBack callBack);
-
-    }
-
-    /**
-     * iView
-     */
-    public interface IMainView extends IActivityView {
-
-        /**
-         * 打开图库
-         */
-        void openGallery();
-
-        /**
-         * 设置用户相关的数据
-         */
-        void setUserInfo(UserBean bean);
-
-        /**
-         * 更新menu菜单中登录/注册按钮显示的文字
-         */
-        void updateMenuSign(String state);
-
-    }
 }

@@ -14,13 +14,14 @@ import com.moose.nareachmvp.NareachApp;
 import com.moose.nareachmvp.R;
 import com.moose.nareachmvp.base.BaseAppCompatActivity;
 import com.moose.nareachmvp.base.BasePresenter;
+import com.moose.nareachmvp.base.BaseView;
 
 /**
  * Created by Moose Yang on 2016/1/21.
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public class CollapsedToolbarActivity<V, P extends BasePresenter<V>> extends BaseAppCompatActivity{
+public class CollapsedToolbarActivity<V extends BaseView, P extends BasePresenter<V>> extends BaseAppCompatActivity{
 
     protected Toolbar toolbar;
     protected RecyclerView mRecyclerView;

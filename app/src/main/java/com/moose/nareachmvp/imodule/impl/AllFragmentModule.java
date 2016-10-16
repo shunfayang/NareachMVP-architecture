@@ -6,7 +6,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.moose.nareachmvp.bean.ImageListBean;
-import com.moose.nareachmvp.presenter.AllFragmentPresenter;
+import com.moose.nareachmvp.contract.AllFragmentContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public class AllFragmentModule implements AllFragmentPresenter.IAllFragmentModule {
+public class AllFragmentModule implements AllFragmentContract.Model {
 
 
     private int showCount = 10;// 拉取得数据个数

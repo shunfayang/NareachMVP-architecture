@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.moose.nareachmvp.iview.interfaces.IMyPhotoView;
+import com.moose.nareachmvp.contract.MyPhotoContract;
 import com.moose.nareachmvp.presenter.MyPhotoPresenter;
 
 public class UserPhotoActivity
-        extends CollapsedToolbarActivity<IMyPhotoView, MyPhotoPresenter>
-        implements IMyPhotoView {
+        extends CollapsedToolbarActivity<MyPhotoContract.View, MyPhotoPresenter>
+        implements MyPhotoContract.View {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

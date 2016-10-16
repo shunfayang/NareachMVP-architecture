@@ -11,12 +11,13 @@ import android.widget.Toast;
 import com.moose.nareachmvp.R;
 import com.moose.nareachmvp.base.BaseAppCompatActivity;
 import com.moose.nareachmvp.bean.UserBean;
+import com.moose.nareachmvp.contract.RegisterContract;
 import com.moose.nareachmvp.presenter.RegisterPresenter;
 import com.moose.nareachmvp.utils.SoftInputManager;
 
 public class RegisterActivity
-        extends BaseAppCompatActivity<RegisterPresenter.IRegisterView, RegisterPresenter>
-        implements View.OnClickListener,RegisterPresenter.IRegisterView {
+        extends BaseAppCompatActivity<RegisterContract.View, RegisterPresenter>
+        implements View.OnClickListener,RegisterContract.View {
 
     private EditText etPersonName;
     private EditText etPassword;

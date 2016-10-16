@@ -2,7 +2,7 @@ package com.moose.nareachmvp.presenter;
 
 import com.moose.nareachmvp.base.BasePresenter;
 import com.moose.nareachmvp.bean.UserBean;
-import com.moose.nareachmvp.iview.interfaces.IActivityView;
+import com.moose.nareachmvp.contract.RegisterContract;
 import com.moose.nareachmvp.imodule.impl.RegisterModule;
 
 /**
@@ -10,9 +10,9 @@ import com.moose.nareachmvp.imodule.impl.RegisterModule;
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public class RegisterPresenter extends BasePresenter<RegisterPresenter.IRegisterView> {
+public class RegisterPresenter extends BasePresenter<RegisterContract.View> {
 
-    private IRegisterModule mModule;
+    private RegisterContract.Model mModule;
 
     public RegisterPresenter() {
         this.mModule = new RegisterModule();
@@ -29,7 +29,7 @@ public class RegisterPresenter extends BasePresenter<RegisterPresenter.IRegister
 
     public void sign() {
         mView.hideSoftInput();
-        mModule.sign(createUserBean(), new SignRegCallBack() {
+        mModule.sign(createUserBean(), new RegisterContract.SignRegCallBack() {
 
             @Override
             public void success(UserBean bean) {
@@ -49,7 +49,7 @@ public class RegisterPresenter extends BasePresenter<RegisterPresenter.IRegister
     public void register() {
         mView.hideSoftInput();
         mView.clearPassword();
-        mModule.register(createUserBean(), new SignRegCallBack() {
+        mModule.register(createUserBean(), new RegisterContract.SignRegCallBack() {
 
             @Override
             public void success(UserBean bean) {
@@ -76,35 +76,4 @@ public class RegisterPresenter extends BasePresenter<RegisterPresenter.IRegister
         // todo 处理注册结果
     }
 
-    // =================================================================
-    //                      以下是Module和View接口、callback
-    // =================================================================
-
-    public interface IRegisterModule {
-
-        void sign(UserBean bean, SignRegCallBack signRegCallBack);
-
-        void register(UserBean bean, SignRegCallBack signRegCallBack);
-
-    }
-
-    public interface SignRegCallBack {
-        void success(UserBean bean);
-
-        void failed();
-    }
-
-    public interface IRegisterView extends IActivityView {
-
-        void clearUserName();
-
-        void clearPassword();
-
-        void hideSoftInput();
-
-        String getUsername();
-
-        String getPassword();
-
-    }
 }

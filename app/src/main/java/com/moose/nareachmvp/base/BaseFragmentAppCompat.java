@@ -15,7 +15,7 @@ import com.moose.nareachmvp.utils.Loger;
  * todo Copy Right MooseStudio
  * 本类注释：Activity 必须是 BaseAppCompatActivity，也必须实现一个V类型的View接口。
  */
-public abstract class BaseFragmentAppCompat<V,P extends BasePresenter<V>> extends Fragment{
+public abstract class BaseFragmentAppCompat<V extends BaseView,P extends BasePresenter<V>> extends Fragment{
 
     protected P mPresenter;
 

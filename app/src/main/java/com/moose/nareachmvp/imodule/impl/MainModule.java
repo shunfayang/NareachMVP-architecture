@@ -2,7 +2,6 @@ package com.moose.nareachmvp.imodule.impl;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -18,6 +17,7 @@ import com.moose.nareachmvp.NareachApp;
 import com.moose.nareachmvp.R;
 import com.moose.nareachmvp.base.BaseAppCompatActivity;
 import com.moose.nareachmvp.bean.UserBean;
+import com.moose.nareachmvp.contract.MainContract;
 import com.moose.nareachmvp.presenter.MainPresenter;
 import com.moose.nareachmvp.utils.Loger;
 
@@ -29,7 +29,7 @@ import java.io.File;
  * 本类注释：
  */
 
-public class MainModule implements MainPresenter.IMainModule {
+public class MainModule implements MainContract.Model {
 
     @Override
     public boolean uploadImg(String path) {

@@ -1,23 +1,20 @@
 package com.moose.nareachmvp.presenter;
 
-import android.util.Log;
-
 import com.moose.nareachmvp.base.BasePresenter;
 import com.moose.nareachmvp.bean.ImageListBean;
+import com.moose.nareachmvp.contract.AllFragmentContract;
 import com.moose.nareachmvp.imodule.impl.AllFragmentModule;
 
 import java.util.List;
-
-import rx.Observer;
 
 /**
  * Created by Moose Yang on 2016/1/17.
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public class AllFragmentPresenter extends BasePresenter<AllFragmentPresenter.IAllFragmentView> {
+public class AllFragmentPresenter extends BasePresenter<AllFragmentContract.View> {
 
-    private IAllFragmentModule mModule;
+    private AllFragmentContract.Model mModule;
 
     public AllFragmentPresenter() {
         this.mModule = new AllFragmentModule();
@@ -82,21 +79,5 @@ public class AllFragmentPresenter extends BasePresenter<AllFragmentPresenter.IAl
         initPagerImage();
     }
 
-    // =================================================================
-    //                      以下是Module和View接口、callback
-    // =================================================================
 
-    public interface IAllFragmentModule {
-        List<ImageListBean> pullData();
-
-        List<ImageListBean> pullData(int skip);
-    }
-
-    public interface IAllFragmentView {
-        void setRecyclerViewAdapter(List<ImageListBean> lists);
-
-        void notifyChangedRecyclerAdapter();
-
-        void addImageListData(List<ImageListBean> addList);
-    }
 }

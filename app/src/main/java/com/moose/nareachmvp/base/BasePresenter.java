@@ -8,7 +8,7 @@ import android.content.res.Resources;
  * todo Copy Right MooseStudio
  * 本类注释：Presenter 基类
  */
-public abstract class BasePresenter<V> {
+public abstract class BasePresenter<V extends BaseView> {
 
     protected V mView;
 

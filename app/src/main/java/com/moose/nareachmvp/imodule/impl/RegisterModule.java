@@ -6,18 +6,18 @@ import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.SignUpCallback;
 import com.moose.nareachmvp.NareachApp;
 import com.moose.nareachmvp.bean.UserBean;
-import com.moose.nareachmvp.presenter.RegisterPresenter;
+import com.moose.nareachmvp.contract.RegisterContract;
 
 /**
  * Created by Moose Yang on 2016/1/18.
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public class RegisterModule implements RegisterPresenter.IRegisterModule {
+public class RegisterModule implements RegisterContract.Model {
 
 
     @Override
-    public void sign(UserBean bean, final RegisterPresenter.SignRegCallBack signRegCallBack) {
+    public void sign(UserBean bean, final RegisterContract.SignRegCallBack signRegCallBack) {
         // 处理用户名和密码
         // 请求服务器登录
         final AVUser mUser = new AVUser();
@@ -42,7 +42,7 @@ public class RegisterModule implements RegisterPresenter.IRegisterModule {
     }
 
     @Override
-    public void register(UserBean bean, final RegisterPresenter.SignRegCallBack signRegCallBack) {
+    public void register(UserBean bean, final RegisterContract.SignRegCallBack signRegCallBack) {
         // 处理用户名和密码
         // 请求服务器注册
         final AVUser mUser = new AVUser();

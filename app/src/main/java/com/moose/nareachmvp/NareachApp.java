@@ -18,8 +18,8 @@ public class NareachApp extends Application {
     private static NareachApp mNareachApp;
     private String username = "未登录";
     // 整体的主题颜色
-    private int currentColor = 0xff00BCD4;
-    private int tintColor = 0xff00BCD4;
+    private int currentColor = 0xff006064;
+    private int tintColor = 0xff00838F;
 
     @Override
     public void onCreate() {

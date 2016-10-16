@@ -2,12 +2,14 @@ package com.moose.nareachmvp.iview.interfaces;
 
 import android.content.Intent;
 
+import com.moose.nareachmvp.base.BaseView;
+
 /**
  * Created by Moose Yang on 2016/1/18.
  * todo Copy Right MooseStudio
  * 本类注释：Activity中都有的一些操作
  */
-public interface IActivityView {
+public interface IActivityView extends BaseView{
     /**
      * 打印吐司
      * @param msg

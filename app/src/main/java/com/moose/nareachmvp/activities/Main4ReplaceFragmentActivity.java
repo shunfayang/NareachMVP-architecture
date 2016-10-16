@@ -21,14 +21,15 @@ import com.moose.nareachmvp.R;
 import com.moose.nareachmvp.base.BaseAppCompatActivity;
 import com.moose.nareachmvp.base.BaseFragmentAppCompat;
 import com.moose.nareachmvp.bean.UserBean;
+import com.moose.nareachmvp.contract.MainContract;
 import com.moose.nareachmvp.fragment.All4ReplaceToolbarFragment;
 import com.moose.nareachmvp.fragment.MyPhotoFragment;
 import com.moose.nareachmvp.presenter.MainPresenter;
 import com.moose.nareachmvp.utils.Loger;
 
 public class Main4ReplaceFragmentActivity
-        extends BaseAppCompatActivity<MainPresenter.IMainView, MainPresenter>
-        implements MainPresenter.IMainView, Toolbar.OnMenuItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+        extends BaseAppCompatActivity<MainContract.View, MainPresenter>
+        implements MainContract.View, Toolbar.OnMenuItemClickListener, NavigationView.OnNavigationItemSelectedListener {
 
 
 //    private Toolbar mToolBar;

@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.moose.nareachmvp.R;
 import com.moose.nareachmvp.base.BaseFragmentAppCompat;
 import com.moose.nareachmvp.bean.ImageListBean;
+import com.moose.nareachmvp.contract.AllFragmentContract;
 import com.moose.nareachmvp.presenter.AllFragmentPresenter;
 import com.moose.nareachmvp.utils.Loger;
 import com.moose.nareachmvp.utils.ScreenUtils;
@@ -32,8 +33,8 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
  * 本类注释：
  */
 public class All4ReplaceToolbarFragment
-        extends BaseFragmentAppCompat<AllFragmentPresenter.IAllFragmentView, AllFragmentPresenter>
-        implements AllFragmentPresenter.IAllFragmentView {
+        extends BaseFragmentAppCompat<AllFragmentContract.View, AllFragmentPresenter>
+        implements AllFragmentContract.View {
     private static final String TAG = "AllFragment";
     private View view;
     private RecyclerView mRecyclerView;

@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.moose.nareachmvp.R;
 import com.moose.nareachmvp.base.BaseFragmentAppCompat;
-import com.moose.nareachmvp.iview.interfaces.IMyPhotoView;
+import com.moose.nareachmvp.contract.MyPhotoContract;
 import com.moose.nareachmvp.presenter.MyPhotoPresenter;
 import com.moose.nareachmvp.utils.ScreenUtils;
 
@@ -26,8 +26,8 @@ import com.moose.nareachmvp.utils.ScreenUtils;
  * 本类注释：
  */
 public class MyPhotoFragment
-        extends BaseFragmentAppCompat<IMyPhotoView, MyPhotoPresenter>
-        implements IMyPhotoView {
+        extends BaseFragmentAppCompat<MyPhotoContract.View, MyPhotoPresenter>
+        implements MyPhotoContract.View {
     private View view;
 
     protected Toolbar mToolbar;

@@ -2,10 +2,10 @@ package com.moose.nareachmvp.activities;
 
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.moose.nareachmvp.contract.AboutMeContract;
 import com.moose.nareachmvp.presenter.AboutMePresenter;
 
 /**
@@ -14,17 +14,20 @@ import com.moose.nareachmvp.presenter.AboutMePresenter;
  * 本类注释：
  */
 public class AboutMeActivity
-        extends CollapsedToolbarActivity<AboutMePresenter.IAboutMeView, AboutMePresenter>
-        implements AboutMePresenter.IAboutMeView {
+        extends CollapsedToolbarActivity<AboutMeContract.View, AboutMePresenter>
+        implements AboutMeContract.View {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
+        loadData();
     }
 
-    private void initData() {
-
+    /**
+     * TODO 获取数据
+     */
+    private void loadData() {
+//        mPresenter.loadData();
     }
 
     @Override
@@ -62,7 +65,7 @@ public class AboutMeActivity
 
             private TextView tv;
 
-            public MyPhotoHolder(View itemView) {
+            public MyPhotoHolder(android.view.View itemView) {
                 super(itemView);
                 this.tv = (TextView) itemView;
             }

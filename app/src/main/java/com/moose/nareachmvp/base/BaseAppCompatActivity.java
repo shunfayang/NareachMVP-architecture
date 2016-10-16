@@ -24,7 +24,8 @@ import com.stylingandroid.prism.filter.TintFilter;
  * 定义Activity时，暂定认为Activity中的东西越少越好，Activity中尽量少出现业务逻辑，
  * view的创建也尽量不在其中进行，仅仅负责贴上view（show），create也不负责。
  */
-public abstract class BaseAppCompatActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
+public abstract class BaseAppCompatActivity<V extends BaseView, P extends BasePresenter<V>>
+        extends AppCompatActivity {
     protected P mPresenter;
     protected Handler mHandler = new Handler() {
         @Override

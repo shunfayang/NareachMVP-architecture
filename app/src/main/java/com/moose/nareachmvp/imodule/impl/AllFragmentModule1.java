@@ -7,6 +7,7 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.moose.nareachmvp.bean.ImageListBean;
+import com.moose.nareachmvp.contract.AllFragmentContract;
 import com.moose.nareachmvp.fragment.AllFragment;
 import com.moose.nareachmvp.presenter.AllFragmentPresenter;
 import com.moose.nareachmvp.utils.ScreenUtils;
@@ -20,7 +21,7 @@ import java.util.Map;
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public class AllFragmentModule1 implements AllFragmentPresenter.IAllFragmentModule {
+public class AllFragmentModule1 implements AllFragmentContract.Model {
 
 
     private int showCount = 5;// 拉取得数据个数
