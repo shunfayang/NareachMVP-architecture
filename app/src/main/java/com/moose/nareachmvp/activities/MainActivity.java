@@ -26,6 +26,8 @@ import com.moose.nareachmvp.presenter.MainPresenter;
 import com.moose.nareachmvp.utils.Loger;
 import com.stylingandroid.prism.Prism;
 
+import butterknife.ButterKnife;
+
 public class MainActivity
         extends BaseAppCompatActivity<MainContract.View, MainPresenter>
         implements MainContract.View, Toolbar.OnMenuItemClickListener, NavigationView.OnNavigationItemSelectedListener {

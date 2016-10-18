@@ -3,7 +3,7 @@ package com.moose.nareachmvp.presenter;
 import com.moose.nareachmvp.base.BasePresenter;
 import com.moose.nareachmvp.bean.UserBean;
 import com.moose.nareachmvp.contract.RegisterContract;
-import com.moose.nareachmvp.imodule.impl.RegisterModule;
+import com.moose.nareachmvp.model.RegisterModule;
 
 /**
  * Created by Moose Yang on 2016/1/18.

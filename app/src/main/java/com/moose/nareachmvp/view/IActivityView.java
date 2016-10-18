@@ -1,4 +1,4 @@
-package com.moose.nareachmvp.iview.interfaces;
+package com.moose.nareachmvp.view;
 
 import android.content.Intent;
 

@@ -2,7 +2,7 @@ package com.moose.nareachmvp.presenter;
 
 import com.moose.nareachmvp.base.BasePresenter;
 import com.moose.nareachmvp.contract.AboutMeContract;
-import com.moose.nareachmvp.imodule.impl.AboutMeModule;
+import com.moose.nareachmvp.model.AboutMeModule;
 
 /**
  * Created by Moose Yang on 2016/1/20.

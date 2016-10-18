@@ -5,8 +5,10 @@ import android.content.Intent;
 import com.moose.nareachmvp.base.BaseAppCompatActivity;
 import com.moose.nareachmvp.base.BaseModel;
 import com.moose.nareachmvp.bean.UserBean;
-import com.moose.nareachmvp.iview.interfaces.IActivityView;
+import com.moose.nareachmvp.view.IActivityView;
 import com.moose.nareachmvp.presenter.MainPresenter;
+
+import rx.Observable;
 
 /**
  * Created by Moose Yang on 2016/10/16.
@@ -46,6 +48,7 @@ public interface MainContract {
          * @param activity
          */
         void signOutIn(MainPresenter.SignCallBack activity);
+        Observable<Boolean> signOutIn();
 
         /**
          * 处理onActivityResult结果

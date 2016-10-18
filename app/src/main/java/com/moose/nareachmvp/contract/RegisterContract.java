@@ -2,7 +2,7 @@ package com.moose.nareachmvp.contract;
 
 import com.moose.nareachmvp.base.BaseModel;
 import com.moose.nareachmvp.bean.UserBean;
-import com.moose.nareachmvp.iview.interfaces.IActivityView;
+import com.moose.nareachmvp.view.IActivityView;
 
 /**
  * Created by Moose Yang on 2016/10/16.

@@ -1,4 +1,4 @@
-package com.moose.nareachmvp.imodule.impl;
+package com.moose.nareachmvp.model;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,6 +22,9 @@ import com.moose.nareachmvp.presenter.MainPresenter;
 import com.moose.nareachmvp.utils.Loger;
 
 import java.io.File;
+
+import rx.Observable;
+import rx.functions.Func1;
 
 /**
  * Created by Moose Yang on 2016/1/17.
@@ -126,6 +129,22 @@ public class MainModule implements MainContract.Model {
         } else {
             callBack.signIn();
         }
+    }
+
+    @Override
+    public Observable<Boolean> signOutIn() {
+        return Observable.just("signoutin").map(new Func1<String, Boolean>() {
+            @Override
+            public Boolean call(String s) {
+                if(checkSign()){
+                    AVUser.logOut();
+                    if (AVUser.getCurrentUser() == null) {
+                        updateUserState();
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     @Override

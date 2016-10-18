@@ -1,25 +1,24 @@
-package com.moose.nareachmvp.imodule.impl;
+package com.moose.nareachmvp.model;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.AVUser;
 import com.moose.nareachmvp.bean.ImageListBean;
 import com.moose.nareachmvp.contract.AllFragmentContract;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Moose Yang on 2016/1/19.
  * todo Copy Right MooseStudio
  * 本类注释：
  */
-public class AllFragmentModule implements AllFragmentContract.Model {
+public class AllFragmentModule1 implements AllFragmentContract.Model {
 
 
-    private int showCount = 10;// 拉取得数据个数
+    private int showCount = 5;// 拉取得数据个数
 
     @Override
     public List<ImageListBean> pullData() {
@@ -28,39 +27,30 @@ public class AllFragmentModule implements AllFragmentContract.Model {
 
     @Override
     public List<ImageListBean> pullData(int skip) {
-        List<ImageListBean> imageListBeans = new ArrayList<ImageListBean>();
 
-        AVQuery<AVObject> file = new AVQuery<AVObject>("Images");
-        file.include("file");
-        file.include("user");
-        file.setLimit(showCount);
+        List<ImageListBean> imageListBeans = new ArrayList<ImageListBean>();
+        AVQuery<AVObject> query = new AVQuery<AVObject>("_File");
+        query.setLimit(showCount);
         if (skip != 0) {
-            file.skip(skip);// 跳过已有的
+            query.skip(skip);// 跳过已有的
         }
-        file.orderByDescending("updatedAt");
+        query.orderByDescending("updatedAt");
 
         try {
-            List<AVObject> avObjects = file.find();
+            List<AVObject> avObjects = query.find();
             if (avObjects != null && avObjects.size() >= 0) {
                 ImageListBean bean = null;
                 for (AVObject av : avObjects) {
                     bean = new ImageListBean();
-                    AVFile f = av.getAVFile("file");
-                    AVUser user = av.getAVUser("user");
-
-                    Object scaleObj = f.getMetaData("scale");
+                    Map<String, Object> metaData = av.getMap("metaData");
+                    Object scaleObj = metaData.get("scale");
                     float scale = 0.6f;
                     if (scaleObj != null) {
                         scale = Float.parseFloat(String.valueOf(scaleObj));
                     }
-                    bean.url = f.getUrl();
+                    bean.url = av.get("url");
                     bean.scale = scale;
-                    bean.date = av.getUpdatedAt().toLocaleString();
-                    if(user != null){
-                        bean.username = user.getUsername();
-                    }
-
-
+                    bean.date = av.getUpdatedAt().toString();
                     imageListBeans.add(bean);
                 }
             }

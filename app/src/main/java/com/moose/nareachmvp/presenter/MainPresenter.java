@@ -8,7 +8,9 @@ import com.moose.nareachmvp.activities.RegisterActivity;
 import com.moose.nareachmvp.base.BasePresenter;
 import com.moose.nareachmvp.bean.UserBean;
 import com.moose.nareachmvp.contract.MainContract;
-import com.moose.nareachmvp.imodule.impl.MainModule;
+import com.moose.nareachmvp.model.MainModule;
+
+import rx.functions.Action1;
 
 /**
  * Created by yang2 on 2016/1/7.
@@ -61,6 +63,15 @@ public class MainPresenter extends BasePresenter<MainContract.View> {
                 mView.startActivity(intent);
             }
         });
+        mMainModule
+                .signOutIn()
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean aBoolean) {
+                        // TODO
+                    }
+                });
+
     }
 
     public void updateUserState() {

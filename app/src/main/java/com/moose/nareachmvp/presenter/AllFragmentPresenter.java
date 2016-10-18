@@ -3,7 +3,7 @@ package com.moose.nareachmvp.presenter;
 import com.moose.nareachmvp.base.BasePresenter;
 import com.moose.nareachmvp.bean.ImageListBean;
 import com.moose.nareachmvp.contract.AllFragmentContract;
-import com.moose.nareachmvp.imodule.impl.AllFragmentModule;
+import com.moose.nareachmvp.model.AllFragmentModule;
 
 import java.util.List;
 

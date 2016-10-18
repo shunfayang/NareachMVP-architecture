@@ -14,6 +14,8 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode appVersionCode
         versionName appVersionName
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+
     }
     buildTypes {
         release {
@@ -25,6 +27,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     android {
         packagingOptions {
             exclude 'META-INF/DEPENDENCIES'
@@ -37,46 +40,77 @@ android {
             exclude 'META-INF/ASL2.0'
         }
     }
+
+//    compileOptions{
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-//    compile 'com.squareup.okhttp:okhttp:2.6.0'
-//    compile 'org.apache.httpcomponents:httpmime:4.5.1'
+//    testCompile 'junit:junit:4.12'
+
+//    androidTestCompile 'com.android.support.test:runner:0.5'
+//    androidTestCompile 'junit:junit:4.12'
+
+    //    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    //    compile 'org.apache.httpcomponents:httpmime:4.5.1'
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["design-v7"]
     compile rootProject.ext.dependencies["support-v4"]
     compile rootProject.ext.dependencies["cardview-v7"]
     compile rootProject.ext.dependencies["recyclerview-v7"]
-
     compile rootProject.ext.dependencies["gson"]
-//    compile rootProject.ext.dependencies["fastjson"]
-
+    //    compile rootProject.ext.dependencies["fastjson"]
     compile rootProject.ext.dependencies["glide"]
-//    compile rootProject.ext.dependencies["fresco"]
-//    compile rootProject.ext.dependencies["picasso"]
-
+    //    compile rootProject.ext.dependencies["fresco"]
+    //    compile rootProject.ext.dependencies["picasso"]
     compile rootProject.ext.dependencies["jakewharton-scalpel"]
     compile rootProject.ext.dependencies["ultra-ptr"]
     compile rootProject.ext.dependencies["zhy-autolayout"]
-
     compile rootProject.ext.dependencies["rxandroid"]
     compile rootProject.ext.dependencies["rxjava"]
-
     // Prism 棱镜
     compile rootProject.ext.dependencies["stylingandroid_prism"]
     compile rootProject.ext.dependencies["stylingandroid_prism-viewpager"]
-
     compile rootProject.ext.dependencies["butterknife"]
     apt rootProject.ext.dependencies["butterknife-compiler"]
-
     compile rootProject.ext.dependencies["orhanobut-logger"]
-
 
     debugCompile rootProject.ext.dependencies["debugCompile_leakcanary"]
     releaseCompile rootProject.ext.dependencies["releaseCompile_leakcanary"]
     testCompile rootProject.ext.dependencies["testCompile_leakcanary"]
+    //    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    //    compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
+    //    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
+    //    compile 'com.jakewharton.rxbinding:rxbinding-design:0.4.0'
+    //    compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
+    //    compile 'com.jakewharton.rxbinding:rxbinding-leanback-v17:0.4.0'
 
+    // Dependencies for local unit tests
+    testCompile "junit:junit:$rootProject.ext.junitVersion"
+    testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+
+    // Android Testing Support Library's runner and rules
+    androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestCompile "com.android.support.test:rules:$rootProject.ext.runnerVersion"
+
+    // Dependencies for Android unit tests
+    androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
+    androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
+    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
+
+    // Espresso UI Testing
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestCompile ("com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion")
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+
+    // Resolve conflicts between main and test APK:
+    androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    androidTestCompile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    androidTestCompile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
 }
 

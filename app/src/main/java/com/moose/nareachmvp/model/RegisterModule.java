@@ -1,4 +1,4 @@
-package com.moose.nareachmvp.imodule.impl;
+package com.moose.nareachmvp.model;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
