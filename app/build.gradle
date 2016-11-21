@@ -77,16 +77,18 @@ dependencies {
     compile rootProject.ext.dependencies["butterknife"]
     apt rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["orhanobut-logger"]
+    compile rootProject.ext.dependencies["okhttp"]
+
+    compile "com.jakewharton.rxbinding:rxbinding:$rootProject.ext.rxbindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-support-v4:$rootProject.ext.rxbindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-appcompat-v7:$rootProject.ext.rxbindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-design:$rootProject.ext.rxbindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-recyclerview-v7:$rootProject.ext.rxbindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-leanback-v17:$rootProject.ext.rxbindingVersion"
 
     debugCompile rootProject.ext.dependencies["debugCompile_leakcanary"]
     releaseCompile rootProject.ext.dependencies["releaseCompile_leakcanary"]
     testCompile rootProject.ext.dependencies["testCompile_leakcanary"]
-    //    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
-    //    compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
-    //    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
-    //    compile 'com.jakewharton.rxbinding:rxbinding-design:0.4.0'
-    //    compile 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0'
-    //    compile 'com.jakewharton.rxbinding:rxbinding-leanback-v17:0.4.0'
 
     // Dependencies for local unit tests
     testCompile "junit:junit:$rootProject.ext.junitVersion"
