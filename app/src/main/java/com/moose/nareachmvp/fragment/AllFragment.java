@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.moose.nareachmvp.utils.Loger;
 import com.moose.nareachmvp.utils.ScreenUtils;
 
 import java.util.List;
+import java.util.Random;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -39,6 +41,14 @@ public class AllFragment
     private RecyclerView mRecyclerView;
     private List<ImageListBean> mImageList;
     private ImageAdapter adapter;
+    private Random mRandom;
+    private String[] mComments = {
+            "我说吧，这是很吊很吊的一张照片。直击灵魂深处！！！",
+            "这是哪个灵魂画师搞出来的？简直啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊",
+            "如果你告诉我，世界上本来就存在着种种不可能，我愿意blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla",
+            "happy",
+            "你是魔鬼中的天使，让恨变成太俗气的事。",
+    };
 
     @Override
     protected void initData() {
@@ -50,6 +60,7 @@ public class AllFragment
         view = View.inflate(getActivity(), R.layout.fragment_all, null);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.moose_recycler_view_images);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRandom = new Random();
 //        mRecyclerView.setLayoutManager(new AutoHeightLinearLayoutManager(getActivity()));
         setListViewPull();
         setRecyclerViewListener();
@@ -68,12 +79,12 @@ public class AllFragment
 
                     }
                 }*/
-                Loger.d(TAG, "RecyclerView.SCROLL_INDICATOR_END  " + RecyclerView.SCROLL_INDICATOR_END
-                        + "   recyclerView.getChildCount()   = " + recyclerView.getAdapter().getItemCount()
-                        + " newState = " + newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE && recyclerView.getVerticalScrollbarPosition() == recyclerView.getChildCount() - 1) {
-                    mPresenter.loadMore(mImageList.size());
+                LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
 
+                int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
+                Log.e("moose", "lastVisibleItemPosition " + lastVisibleItemPosition +  "  mImageList.size() = " + mImageList.size());
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItemPosition == mImageList.size() - 1) {
+                    mPresenter.loadMore(mImageList.size());
                 }
             }
 
@@ -141,6 +152,8 @@ public class AllFragment
     @Override
     public void addImageListData(List<ImageListBean> addList) {
         mImageList.addAll(addList);
+        adapter.notifyDataSetChanged();
+        Log.e("moose", "添加更多数据：" + addList);
     }
 
     public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageHolder> {
@@ -169,11 +182,16 @@ public class AllFragment
                     height + (int) ScreenUtils.dp2px(getActivity(), ottherHeight));
             Log.d("moose", "position = " + position + "scale = " + imageListBean.scale + " ; height = " + height);
 
+//            LinearLayout.LayoutParams imgParams = new LinearLayout.LayoutParams(
+//                    LinearLayout.LayoutParams.MATCH_PARENT,height + (int) ScreenUtils.dp2px(getActivity(), ottherHeight));
+//            holder.mImageView.setLayoutParams(imgParams);
+//            holder.itemView.setMinimumHeight(height + (int) ScreenUtils.dp2px(getActivity(), ottherHeight));
             holder.itemView.setLayoutParams(params);
             holder.itemView.setTag(position);
             // 设置日期时间
             holder.ivDate.setText(imageListBean.date);
             holder.userName.setText(imageListBean.username);
+            holder.ivComment.setText(mComments[mRandom.nextInt(5)]);
 
             // 设置用户名和用户头像
 
@@ -194,6 +212,7 @@ public class AllFragment
         class ImageHolder extends RecyclerView.ViewHolder {
             ImageView mImageView;
             ImageView mIcon;
+            TextView ivComment;
             TextView ivDate;
             TextView userName;
 
@@ -201,6 +220,7 @@ public class AllFragment
                 super(itemView);
                 mImageView = (ImageView) itemView.findViewById(R.id.moose_iv);
                 ivDate = (TextView) itemView.findViewById(R.id.moose_tv_date);
+                ivComment = (TextView) itemView.findViewById(R.id.moose_comment);
                 userName = (TextView) itemView.findViewById(R.id.moose_tv_username);
                 mIcon = (ImageView) itemView.findViewById(R.id.moose_user_icon);
             }

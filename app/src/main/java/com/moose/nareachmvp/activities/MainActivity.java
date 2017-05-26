@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.moose.nareachmvp.contract.MainContract;
 import com.moose.nareachmvp.fragment.AllFragment;
 import com.moose.nareachmvp.presenter.MainPresenter;
 import com.moose.nareachmvp.utils.Loger;
+import com.squareup.haha.perflib.Main;
 import com.stylingandroid.prism.Prism;
 
 import butterknife.ButterKnife;
@@ -121,10 +123,16 @@ public class MainActivity
         menu = mNavigationView.getMenu();
         signMenuItem = menu.findItem(R.id.item_toggle);
 
-//        mToolBar.setNavigationIcon(R.mipmap.moose_naratu);
+        mToolBar.setNavigationIcon(R.drawable.moose_menu);
 //        mToolBar.setSubtitle(R.string.moose_subtitle);
 //        mToolBar.showOverflowMenu();
         mToolBar.setOnMenuItemClickListener(this);
+        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawer.openDrawer(Gravity.LEFT);
+            }
+        });
         mNavigationView.setNavigationItemSelectedListener(this);
 
         setSupportActionBar(mToolBar);
