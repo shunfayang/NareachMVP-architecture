@@ -189,6 +189,9 @@ public class MainActivity
                 dLog("我要上传。");
                 mPresenter.openGallery();
                 break;
+            case android.R.id.home:
+                mDrawer.openDrawer(Gravity.LEFT);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -214,8 +217,8 @@ public class MainActivity
         switch (item.getItemId()) {
             case R.id.item_home:
                 dLog("首页");
-                currentColor = 0xff6D4C41;
-                tintColor = 0xff8D6E63;
+//                currentColor = 0xff6D4C41;
+//                tintColor = 0xff8D6E63;
                 replaceFragment(new AllFragment());
                 break;
             case R.id.item_my_photos:
@@ -241,7 +244,7 @@ public class MainActivity
 //                dLog("是的，我是发哥，一个不拘的独立开发者。");
 //                break;
         }
-//        setColor();
+        setColor();
 //        setActivityThemeColor();
         mDrawer.closeDrawers();
         return false;
